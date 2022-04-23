@@ -1,3 +1,4 @@
+const fs = require('fs');
 require('dotenv').config();
 
 const { Client } = require('discord.js');
@@ -7,20 +8,85 @@ const client = new Client({
         "GUILD_MESSAGES"
     ]
 });
-var lastDelMessage;
 
 client.on('ready', () => {
-    console.log(`${client.user.tag} has logged in`)
+    console.log(`${client.user.tag} has logged into`)
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`).join('\n');
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`);
+    var list = client.guilds.cache.map(g => [`${g.id}`, null]);
+
+    if (list) {
+        console.log(list);
+    } else {
+        console.log("Something went wrong");
+    }
+
+    const data = JSON.stringify(list);
+    fs.writeFile('data.json', data, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("JSON data is saved.");
+    });
 })
 
 client.on('messageDelete', (message) => {
     console.log("Deleted Message: " + `[${message.author.tag}]: "${message.content}" at ${Date(message.createdTimestamp)}`);
-    lastDelMessage = message;
+    console.log(`${message.guildId}`);
+    fs.readFile('data.json', 'utf-8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+    
+        // parse JSON object
+        const newList = JSON.parse(data.toString());
+    
+        // print JSON object
+        console.log(newList);
+
+        for (let i = 0; i < newList.length; i++) {
+            if (newList[i][0] === `${message.guildId}`) {
+                newList[i][1] = message;
+                break;
+            }
+        }
+        console.log(newList);
+        const newData = JSON.stringify(newList);
+        fs.writeFile('data.json', newData, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("JSON data is saved.");
+        });
+          
+    });
+
 }) 
 
 client.on('message', (message) => {
     if (message.content.toUpperCase() === '<@967171515063865384> HELP') {
-        message.reply(`<@${lastDelMessage.author.id}>: "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in ${lastDelMessage.channel}`);
+        fs.readFile('data.json', 'utf-8', (err, data) => {
+            if (err) {
+                throw err;
+            }
+        
+            // parse JSON object
+            const newList = JSON.parse(data.toString());
+        
+            // print JSON object
+            console.log(newList);
+    
+            for (let i = 0; i < newList.length; i++) {
+                if (newList[i][0] === `${message.guildId}`) {
+                    if (newList[i][1] === null) {
+                        return message.reply("No messages have been deleted since my last reset!")
+                    }
+                    var lastDelMessage = newList[i][1];
+                    break;
+                }
+            }
+            message.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
+        }); 
     }
 })
 
