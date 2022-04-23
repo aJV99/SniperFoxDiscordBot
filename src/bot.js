@@ -91,9 +91,13 @@ client.on('message', (message) => {
 })
 
 client.on('message', (message) => {
-    if (message.content.toUpperCase() === 'FAKE') {
-        message.reply("Skill Issue");
-    }
+    if (message.content.toUpperCase() === 'HELLO THERE') {
+        message.reply("General Kenobi");
+    } 
+    if (message.content.toUpperCase() === 'SHAZ') {
+        message.reply("Shaz sucks");
+    } 
+    
 })
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);
