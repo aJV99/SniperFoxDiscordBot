@@ -97,6 +97,9 @@ client.on('message', (message) => {
     if (message.content.toUpperCase() === 'SHAZ') {
         message.reply("Shaz sucks");
     } 
+    if (message.content.toUpperCase() === 'VAPE') {
+        message.reply("is a cutie - <@125225529480708096>");
+    } 
     
 })
 
