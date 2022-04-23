@@ -100,6 +100,9 @@ client.on('message', (message) => {
     if (message.content.toUpperCase() === 'VAPE') {
         message.reply("is a cutie - <@125225529480708096>");
     } 
+    if (message.content.toUpperCase() === 'NIGEED') {
+        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967438006506094652/Screenshot_20220423-155223_Instagram.jpg");
+    } 
     
 })
 
