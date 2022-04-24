@@ -30,6 +30,69 @@ client.on('ready', () => {
     });
 })
 
+client.on('guildCreate', (guild) => {
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`).join('\n');
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`);
+    fs.readFile('data.json', 'utf-8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+    
+        // parse JSON object
+        const newList = JSON.parse(data.toString());
+    
+        // print JSON object
+        console.log(newList);
+
+        newList.push([guild.id, null]);
+
+        console.log(newList);
+        const newData = JSON.stringify(newList);
+        fs.writeFile('data.json', newData, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("JSON data is saved.");
+        });
+          
+    });
+
+})
+
+client.on('guildDelete', (guild) => {
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`).join('\n');
+    // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`);
+    fs.readFile('data.json', 'utf-8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+    
+        // parse JSON object
+        const newList = JSON.parse(data.toString());
+    
+        // print JSON object
+        console.log(newList);
+
+        for( var i = 0; i < newList.length; i++){ 
+    
+            if ( newList[i][0] === guild.id) { 
+        
+                newList.splice(i, 1); 
+            }
+        
+        }
+
+        console.log(newList);
+        const newData = JSON.stringify(newList);
+        fs.writeFile('data.json', newData, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("JSON data is saved.");
+        });
+    });
+})
+
 client.on('messageDelete', (message) => {
     console.log("Deleted Message: " + `[${message.author.tag}]: "${message.content}" at ${Date(message.createdTimestamp)}`);
     console.log(`${message.guildId}`);
