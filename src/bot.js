@@ -198,7 +198,7 @@ client.on('message', (message) => {
     if (message.content.toUpperCase() === 'NIGEED') {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967438006506094652/Screenshot_20220423-155223_Instagram.jpg");
     } 
-    if (message.author.id === "159985870458322944") {
+    if (message.author.id == "159985870458322944") {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
     }
 })
