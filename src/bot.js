@@ -30,6 +30,41 @@ client.on('ready', () => {
     });
 })
 
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
+
+	const { commandName } = interaction;
+
+	if (commandName === 'trial1') {
+		await fs.readFile('data.json', 'utf-8', (err, data) => {
+            if (err) {
+                throw err;
+            }
+        
+            // parse JSON object
+            const newList = JSON.parse(data.toString());
+        
+            // print JSON object
+            console.log(newList);
+    
+            for (let i = 0; i < newList.length; i++) {
+                if (newList[i][0] === `${interaction.guildId}`) {
+                    if (newList[i][1] === null) {
+                        return message.reply("No messages have been deleted since my last reset!")
+                    }
+                    var lastDelMessage = newList[i][1];
+                    break;
+                }
+            }
+            interaction.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
+        }); 
+	// } else if (commandName === 'trial2') {
+	// 	await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+	// } else if (commandName === 'trial3') {
+	// 	await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+	}
+});
+
 client.on('guildCreate', (guild) => {
     // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`).join('\n');
     // var list = client.guilds.cache.map(g => `${g.name} : ${g.id}`);
@@ -151,9 +186,6 @@ client.on('message', (message) => {
             message.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
         }); 
     }
-})
-
-client.on('message', (message) => {
     if (message.content.toUpperCase() === 'HELLO THERE') {
         message.reply("General Kenobi");
     } 
@@ -166,7 +198,9 @@ client.on('message', (message) => {
     if (message.content.toUpperCase() === 'NIGEED') {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967438006506094652/Screenshot_20220423-155223_Instagram.jpg");
     } 
-    
+    if (message.author.id === "159985870458322944") {
+        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
+    }
 })
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);

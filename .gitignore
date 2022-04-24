@@ -1,3 +1,4 @@
 .env
 botTest.js
 data.json
+node_modules
