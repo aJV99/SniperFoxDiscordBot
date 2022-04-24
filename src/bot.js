@@ -201,12 +201,6 @@ client.on('message', (message) => {
     if (message.author.id == "159985870458322944") {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
     }
-    if (message.author.id == "159985870458322944") {
-        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
-    }
-    if (message.author.id === "766238802917457931") {
-        message.reply("Yes Lord");
-    }
 })
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);
