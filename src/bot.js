@@ -35,7 +35,7 @@ client.on('interactionCreate', async interaction => {
 
 	const { commandName } = interaction;
 
-	if (commandName === 'trial1') {
+	if (commandName === 'snipe') {
 		await fs.readFile('data.json', 'utf-8', (err, data) => {
             if (err) {
                 throw err;
@@ -50,7 +50,7 @@ client.on('interactionCreate', async interaction => {
             for (let i = 0; i < newList.length; i++) {
                 if (newList[i][0] === `${interaction.guildId}`) {
                     if (newList[i][1] === null) {
-                        return message.reply("No messages have been deleted since my last reset!")
+                        return interaction.reply("No messages have been deleted since my last reset!")
                     }
                     var lastDelMessage = newList[i][1];
                     break;
