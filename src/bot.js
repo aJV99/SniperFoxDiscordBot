@@ -202,7 +202,7 @@ client.on('message', (message) => {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
     }
     if (message.content.toUpperCase() === "GABRIEL") {
-        message.reply("wasn't gabriel an angel? this gabriel the devil");
+        message.reply("wasn't gabriel an angel? this gabriel the demon");
     }
     if (message.content.toUpperCase() === "SHEGO") {
         message.reply("https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426");
