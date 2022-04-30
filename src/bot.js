@@ -54,7 +54,23 @@ client.on('interactionCreate', async interaction => {
                     break;
                 }
             }
-            interaction.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
+            const exampleEmbed = new MessageEmbed()
+                .setColor('#32cd32')
+                .setTitle(`Here's the last deleted message `)
+                .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
+                .setDescription('You did it. You son of a bitch. You caught their deleted message!')
+                .setTimestamp()
+                .setFooter({ text: `Requested by ${interaction.user.tag}` })
+                .addFields(
+                    { name: `Who?`, value: `<@${lastDelMessage.authorId}>` },
+                    { name: `What?`, value: `"${lastDelMessage.content}"` },
+                    { name: `Where?`, value: `<#${lastDelMessage.channelId}>` },
+                    { name: `When?`, value: `${Date(lastDelMessage.createdTimestamp)}` },
+                );
+
+            interaction.reply({ embeds: [exampleEmbed] })
+            .then(() => console.log('Reply sent.'))
+            .catch(console.error);
         }); 
 	} else if (commandName === 'last10') {
 		await fs.readFile('data.json', 'utf-8', (err, data) => {
@@ -72,7 +88,7 @@ client.on('interactionCreate', async interaction => {
                     if (newList[i][1].length === 0) {
                         return interaction.reply("No messages have been deleted since my last reset!")
                     } else {
-                        interaction.reply("You requested the last 10 messages");
+                        // interaction.reply("You requested the last 10 messages");
                     
                     console.log(temp);
 
@@ -92,7 +108,7 @@ client.on('interactionCreate', async interaction => {
                         )
                     }
                     
-                    interaction.channel.send({ embeds: [exampleEmbed], ephemeral: true })
+                    interaction.reply({ embeds: [exampleEmbed] })
                         .then(() => console.log('Reply sent.'))
                         .catch(console.error);
 
@@ -103,30 +119,82 @@ client.on('interactionCreate', async interaction => {
             
                         collector.on('collect', message => {
                             console.log(`Collected ${message.content}`);
+                            if (Number.isInteger(Number(message.content)) && Number(message.content) > 0 && Number(message.content) <= 10) {
+                                message.delete();
+                            }
                         });
             
                         collector.on('end', collected => {
                             console.log(`Collected ${collected.size} items`);
                             if (collected.size == 0) {
-                                return interaction.channel.send(`<@${interaction.user.id}>, youre a dumbass. You didnt answer put any number in chat`);
+                                const exampleEmbed = new MessageEmbed()
+                                    .setColor('#d56724')
+                                    .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
+                                    .setDescription(`<@${interaction.user.id}>, youre a dumbass. You didnt answer put any number in chat. ` + "Try `/last10` again")
+                                    .setTimestamp()
+                                    .setFooter({ text: `Requested by ${interaction.user.tag}` });
+                                return interaction.editReply({ embeds: [exampleEmbed] })
+                                    .then(() => console.log('Reply sent.'))
+                                    .catch(console.error);
                             }
                             console.log(collected.at(0).content);
                             const numberAsked = Number(collected.at(0).content);
-                            console.log("!!!!!!!!!!!!!!!!" + newList[i][1].length);
+                            console.log(newList[i][1].length);
                             if (Number.isInteger(numberAsked) && numberAsked > 0 && numberAsked <= newList[i][1].length) {
                                 const num = numberAsked - 1;
                                 console.log(newList[i][1]);
-                                interaction.channel.send(`<@${newList[i][1][num].authorId}> said "${newList[i][1][num].content}" at ${Date(newList[i][1][num].createdTimestamp)} in <#${newList[i][1][num].channelId}>`);
+                                const exampleEmbed = new MessageEmbed()
+                                    .setColor('#32cd32')
+                                    .setTitle(`Here's the deleted message you requested - #${numberAsked}`)
+                                    .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
+                                    .setDescription('GOTTA GO... slow? Took you long enough but you got their deleted message')
+                                    .setTimestamp()
+                                    .setFooter({ text: `Requested by ${interaction.user.tag}` })
+                                    .addFields(
+                                        { name: `Who?`, value: `<@${newList[i][1][num].authorId}>` },
+                                        { name: `What?`, value: `"${newList[i][1][num].content}"` },
+                                        { name: `Where?`, value: `<#${newList[i][1][num].channelId}>` },
+                                        { name: `When?`, value: `${Date(newList[i][1][num].createdTimestamp)}` },
+                                    );
+
+                                interaction.editReply({ embeds: [exampleEmbed] })
+                                .then(() => console.log('Reply sent.'))
+                                .catch(console.error);
                             } else {
-                                interaction.channel.send(`<@${interaction.user.id}>, youre a dumbass. You didnt enter a valid number. ` + "Try `/last10` again");
+                                const exampleEmbed = new MessageEmbed()
+                                    .setColor('#d56724')
+                                    .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
+                                    .setDescription(`<@${interaction.user.id}>, youre a dumbass. You didnt enter a valid number. ` + "Try `/last10` again")
+                                    .setTimestamp()
+                                    .setFooter({ text: `Requested by ${interaction.user.tag}` });
+                                interaction.editReply({ embeds: [exampleEmbed] })
+                                    .then(() => console.log('Reply sent.'))
+                                    .catch(console.error);
                             }
-                            
                         }); 
                     break;}
                 }
             }
         }); 
-	}
+	} else if (commandName === 'help') {
+        const exampleEmbed = new MessageEmbed()
+            .setColor('#cf1a24')
+            .setTitle(`SniperFox Bot Commands List`)
+            .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
+            .setDescription(`here's your help, you useless forgetful git`)
+            .setTimestamp()
+            .setFooter({ text: `Requested by ${interaction.user.tag}` })
+            .addFields(
+                { name: `*In case you didn't know, Sniping is retrieving a deleted message*`, value: '\u200B' },
+                { name: '`/snipe`', value: 'Snipe the last deleted message' },
+                { name: '`/last10`', value: 'Snipe one of the last 10 deleted messages' },
+                { name: '`/help`', value: `Mfer u know this. You're here` },
+            );
+
+        interaction.reply({ embeds: [exampleEmbed] })
+            .then(() => console.log('Reply sent.'))
+            .catch(console.error);
+    }
 });
 
 client.on('guildCreate', (guild) => {
@@ -172,7 +240,7 @@ client.on('guildDelete', (guild) => {
 })
 
 client.on('messageDelete', (message) => {
-    if (message.author.id  === 967171515063865384) {
+    if (Number.isInteger(Number(message.content)) && Number(message.content) > 0 && Number(message.content) <= 10) {
         return console.log("SniperFox deleted a message");
     }
     console.log("Deleted Message: " + `[${message.author.tag}]: "${message.content}" at ${Date(message.createdTimestamp)}`);

@@ -4,9 +4,9 @@ const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
-	new SlashCommandBuilder().setName('snipe').setDescription('Shows the most recent deleted message!'),
-	new SlashCommandBuilder().setName('last10').setDescription('Shows the last 10 deleted messages!'),
-	// new SlashCommandBuilder().setName('trial3').setDescription('Replies with user info!'),
+	new SlashCommandBuilder().setName('snipe').setDescription('what can i say except undelete this'),
+	new SlashCommandBuilder().setName('last10').setDescription('feelin cute, might undelete this later'),
+	new SlashCommandBuilder().setName('help').setDescription('help me SniperFox Kenobi, youre my only hope'),
 ]
 	.map(command => command.toJSON());
 
