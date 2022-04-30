@@ -120,7 +120,12 @@ client.on('interactionCreate', async interaction => {
                         collector.on('collect', message => {
                             console.log(`Collected ${message.content}`);
                             if (Number.isInteger(Number(message.content)) && Number(message.content) > 0 && Number(message.content) <= 10) {
-                                message.delete();
+                                try {
+                                    message.delete();
+                                } catch (error) {
+                                    console.log("SniperFox wasn't able to delete the message");
+                                }
+                                
                             }
                         });
             
