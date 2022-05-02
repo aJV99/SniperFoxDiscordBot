@@ -1,3 +1,4 @@
+import { newServer } from './deploy-commands.js';
 const fs = require('fs');
 require('dotenv').config();
 
@@ -216,6 +217,7 @@ client.on('guildCreate', (guild) => {
             console.log("JSON data is saved.");
         });   
     });
+    let val = newServer();
 })
 
 client.on('guildDelete', (guild) => {
