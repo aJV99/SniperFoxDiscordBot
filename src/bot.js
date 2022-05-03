@@ -73,26 +73,25 @@ client.on('interactionCreate', async interaction => {
             .catch(console.error);
         }); 
 	} else if (commandName === 'last10') {
-		await fs.readFile('data.json', 'utf-8', (err, data) => {
+		fs.readFile('data.json', 'utf-8', (err, data) => {
             if (err) {
                 throw err;
             }
-        
+
             const newList = JSON.parse(data.toString());
-        
+
             console.log(newList);
-            
+
             var temp = [];
             for (let i = 0; i < newList.length; i++) {
                 if (newList[i][0] === `${interaction.guildId}`) {
                     if (newList[i][1].length === 0) {
-                        return interaction.reply("No messages have been deleted since my last reset!")
+                        return interaction.reply("No messages have been deleted since my last reset!");
                     } else {
                         // interaction.reply("You requested the last 10 messages");
-                    
-                    console.log(temp);
+                        console.log(temp);
 
-                    const exampleEmbed = new MessageEmbed()
+                        const exampleEmbed = new MessageEmbed()
                             .setColor('#d56724')
                             .setTitle('Pick an old deleted message')
                             .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
@@ -100,32 +99,32 @@ client.on('interactionCreate', async interaction => {
                             .setTimestamp()
                             .setFooter({ text: `Requested by ${interaction.user.tag}` });
 
-                    console.log(newList[i][1]);
+                        console.log(newList[i][1]);
 
-                    for (let j = 0; j < newList[i][1].length; j++) {
-                        exampleEmbed.addField(
-                            (j+1).toString(), `<@${newList[i][1][j].authorId}> in <#${newList[i][1][j].channelId}> **${Math.round(((new Date()).getTime() - newList[i][1][j].createdTimestamp)/60000)} minutes** ago` 
-                        )
-                    }
-                    
-                    interaction.reply({ embeds: [exampleEmbed] })
-                        .then(() => console.log('Reply sent.'))
-                        .catch(console.error);
+                        for (let j = 0; j < newList[i][1].length; j++) {
+                            exampleEmbed.addField(
+                                (j + 1).toString(), `<@${newList[i][1][j].authorId}> in <#${newList[i][1][j].channelId}> **${Math.round(((new Date()).getTime() - newList[i][1][j].createdTimestamp) / 60000)} minutes** ago`
+                            );
+                        }
+
+                        interaction.reply({ embeds: [exampleEmbed] })
+                            .then(() => console.log('Reply sent.'))
+                            .catch(console.error);
 
                         const filter = (message) => {
                             return message.author.id === interaction.user.id;
                         };
                         const collector = interaction.channel.createMessageCollector({ filter, max: 1, time: 30000 });
-            
+
                         collector.on('collect', message => {
                             console.log(`Collected ${message.content}`);
-                            if (interaction.guild.me.permissions.has("MANAGE_MESSAGES", true)) {
-                                if (Number.isInteger(Number(message.content)) && Number(message.content) > 0 && Number(message.content) <= 10) {
-                                    message.delete();
-                                }
-                            } 
+                            // if (interaction.guild.me.permissions.has("MANAGE_MESSAGES", true)) {
+                            //     if (Number.isInteger(Number(message.content)) && Number(message.content) > 0 && Number(message.content) <= 10) {
+                            //         message.delete();
+                            //     }
+                            // }
                         });
-            
+
                         collector.on('end', collected => {
                             console.log(`Collected ${collected.size} items`);
                             if (collected.size == 0) {
@@ -156,12 +155,12 @@ client.on('interactionCreate', async interaction => {
                                         { name: `Who?`, value: `<@${newList[i][1][num].authorId}>` },
                                         { name: `What?`, value: `"${newList[i][1][num].content}"` },
                                         { name: `Where?`, value: `<#${newList[i][1][num].channelId}>` },
-                                        { name: `When?`, value: `${Date(newList[i][1][num].createdTimestamp)}` },
+                                        { name: `When?`, value: `${Date(newList[i][1][num].createdTimestamp)}` }
                                     );
 
                                 interaction.editReply({ embeds: [exampleEmbed] })
-                                .then(() => console.log('Reply sent.'))
-                                .catch(console.error);
+                                    .then(() => console.log('Reply sent.'))
+                                    .catch(console.error);
                             } else {
                                 const exampleEmbed = new MessageEmbed()
                                     .setColor('#d56724')
@@ -173,8 +172,9 @@ client.on('interactionCreate', async interaction => {
                                     .then(() => console.log('Reply sent.'))
                                     .catch(console.error);
                             }
-                        }); 
-                    break;}
+                        });
+                        break;
+                    }
                 }
             }
         }); 
@@ -290,7 +290,7 @@ client.on('messageDelete', (message) => {
     });
 }) 
 
-client.on('message', (message) => {
+client.on('messageCreate', (message) => {
     if (message.content.toUpperCase() === '<@967171515063865384> HELP') {
         fs.readFile('data.json', 'utf-8', (err, data) => {
             if (err) {
