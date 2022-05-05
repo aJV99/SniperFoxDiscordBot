@@ -11,6 +11,7 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log(`${client.user.tag} has logged into`)
+    var list = console.log(client.guilds.cache.map(g => [`${g.name}`,`${g.id}`]));
     var list = client.guilds.cache.map(g => [`${g.id}`, []]);
 
     if (list) {
@@ -312,18 +313,30 @@ client.on('messageCreate', (message) => {
             interaction.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
         });
     }
+    let words = message.content.toUpperCase().split(" ");
     if (message.content.toUpperCase() === 'HELLO THERE') {
         message.reply("General Kenobi");
     } 
-    if (message.author.id == "159985870458322944") {
+    if (message.content.startsWith("GG") && (message.author.id == "159985870458322944")) {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
     }
     if (message.content.toUpperCase() === "SHEGO") {
         message.reply("https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426");
     }
+    for (var i=0; i < words.length; i++) {
+        if ((words[i] === "LEAN") && (message.author.id != "967171515063865384")) {
+            message.reply("https://i.kym-cdn.com/photos/images/original/002/311/048/281.jpg");
+        }
+        if ((words[i] === "GOOFY") && (message.author.id != "967171515063865384")) {
+            message.reply("goofy ahh uncle :skull:");
+        }
+    }
     // QM COMPSCI SERVER
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'SHAZ') {
         message.reply("Shaz sucks");
+    } 
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
+        message.reply("No matter what the crime or evidence, Jamal definitely did it");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'VAPE') {
         message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967874867548553286/vapegabriel.gif");
@@ -333,6 +346,9 @@ client.on('messageCreate', (message) => {
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "GABRIEL") {
         message.reply("wasn't gabriel an angel? this gabriel a demon");
+    }
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "HAMZA") {
+        message.reply("https://tenor.com/view/avarose-ava-rose-avarxse-gif-20781977");
     }
 })
 
