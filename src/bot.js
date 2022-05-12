@@ -359,6 +359,9 @@ client.on('messageCreate', (message) => {
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "SAM") {
         message.reply("Sam sucks just as much as Shaz");
     }
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "UMAR") {
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974457690619248670/umarhehe.mp4");
+    }
     if (message.guildId == 754295468913066017 && message.content.toUpperCase().includes("SIU")) {
         message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974443635598827530/muchas_gracias.mp4");
     }
