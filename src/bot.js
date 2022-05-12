@@ -318,7 +318,7 @@ client.on('messageCreate', (message) => {
         message.reply("General Kenobi");
     } 
     if (message.content.startsWith("GG") && (message.author.id == "159985870458322944")) {
-        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967723087376289792/Oh_No.mp4");
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974278951792967710/Oh_No.mp4");
     }
     if (message.content.toUpperCase() === "SHEGO") {
         message.reply("https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426");
@@ -330,25 +330,37 @@ client.on('messageCreate', (message) => {
         if ((words[i] === "GOOFY") && (message.author.id != "967171515063865384")) {
             message.reply("goofy ahh uncle :skull:");
         }
+        if ((words[i] === "CHIPMUNK") && (message.author.id != "967171515063865384")) {
+            message.reply("https://tenor.com/view/odpay-2b2t-odpay2b2t-gif-22649641");
+        }
     }
     // QM COMPSCI SERVER
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'SHAZ') {
-        message.reply("Shaz sucks");
+        message.reply("Shaz sucks just as much as Sam");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
         message.reply("No matter what the crime or evidence, Jamal definitely did it");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'VAPE') {
-        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967874867548553286/vapegabriel.gif");
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974444218426736660/vapegabriel.gif");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'NIGEED') {
-        message.reply("https://cdn.discordapp.com/attachments/772192764175581196/967438006506094652/Screenshot_20220423-155223_Instagram.jpg");
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974441802230796349/SmartSelect_20220512-234342_Instagram.jpg");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "GABRIEL") {
         message.reply("wasn't gabriel an angel? this gabriel a demon");
     }
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "HAMZA") {
         message.reply("https://tenor.com/view/avarose-ava-rose-avarxse-gif-20781977");
+    }
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "JONATHAN") {
+        message.reply("https://tenor.com/view/jonathan-funny-hogsmoss-fortnite-chungus-gif-17799912");
+    }
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "SAM") {
+        message.reply("Sam sucks just as much as Shaz");
+    }
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase().includes() === "SIU") {
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974443635598827530/muchas_gracias.mp4");
     }
 })
 
