@@ -317,9 +317,6 @@ client.on('messageCreate', (message) => {
     if (message.content.toUpperCase() === 'HELLO THERE') {
         message.reply("General Kenobi");
     } 
-    if (message.content.toUpperCase() === 'BM') {
-        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975175462160564254/itsdatboyo-01102021-0001.mp4");
-    } 
     if (message.content.startsWith("GG") && (message.author.id == "159985870458322944")) {
         message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974278951792967710/Oh_No.mp4");
     }
@@ -335,6 +332,9 @@ client.on('messageCreate', (message) => {
         }
         if ((words[i] === "CHIPMUNK") && (message.author.id != "967171515063865384")) {
             message.reply("https://tenor.com/view/odpay-2b2t-odpay2b2t-gif-22649641");
+        }
+        if ((words[i] === "BM") && (message.author.id != "967171515063865384")) {
+            message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975175462160564254/itsdatboyo-01102021-0001.mp4");
         }
     }
     // QM COMPSCI SERVER
