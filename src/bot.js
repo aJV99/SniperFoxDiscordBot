@@ -335,9 +335,6 @@ client.on('messageCreate', (message) => {
         }
     }
     // QM COMPSCI SERVER
-    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'SHAZ') {
-        message.reply("Shaz sucks just as much as Sam");
-    } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
         message.reply("No matter what the crime or evidence, Jamal definitely did it");
     } 
@@ -355,9 +352,6 @@ client.on('messageCreate', (message) => {
     }
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "JONATHAN") {
         message.reply("https://tenor.com/view/jonathan-funny-hogsmoss-fortnite-chungus-gif-17799912");
-    }
-    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "SAM") {
-        message.reply("Sam sucks just as much as Shaz");
     }
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === "UMAR") {
         message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974457690619248670/umarhehe.mp4");
