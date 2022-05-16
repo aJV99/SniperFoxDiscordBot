@@ -318,7 +318,7 @@ client.on('messageCreate', (message) => {
         message.reply("General Kenobi");
     } 
     if (message.content.startsWith("GG") && (message.author.id == "159985870458322944")) {
-        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974278951792967710/Oh_No.mp4");
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975586757779259392/unknown.png");
     }
     if (message.content.toUpperCase() === "SHEGO") {
         message.reply("https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426");
