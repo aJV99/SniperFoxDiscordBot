@@ -6,7 +6,7 @@ The Sniper Fox Discord Bot is a handy Discord Bot which logs whenever a message 
 
 You can add the Bot to your server if you have Manager Permissions. 
 
-Click the invitation [here](https://discord.com/oauth2/authorize?client_id=967171515063865384&scope=bot%20applications.commands "SniperFox Server Invite") to add SniperFox to your Discord server.
+Go to our invite page [here](https://top.gg/bot/967171515063865384 "SniperFox Top.gg Page") and click the invite button to add SniperFox to your Discord server.
 
 ## Running The Bot
 
@@ -19,6 +19,20 @@ Then run the below commands, which should install the necessary dependencies and
 `npm start run`
 
 ## Patch Notes
+
+### v4.0.9
+
+- "/last10" bugs fixed.
+- Permission errors fixed.
+- Vape thanked.
+- TheSniped added.
+
+### v4.0.0
+
+- Implemented new server command ("/last10") which has the feature to snipe the last 10 deleted messages in the server.
+- "@SniperFox help" has been removed to redundancy since it has the same functionality as "/snipe".
+- Bot is now available to the public on Top.gg.
+- TheSniped added.
 
 ### v3.2.0
 
