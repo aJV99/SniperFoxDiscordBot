@@ -20,6 +20,19 @@ Then run the below commands, which should install the necessary dependencies and
 
 ## Patch Notes
 
+### v4.0.9
+
+- "/last10" bugs fixed.
+- Permissions errors fixed.
+- Vape thanked.
+- TheSniped added.
+
+### v4.0.0
+
+- Implemented new server command ("/last10") which has the feature to snipe the last 10 deleted messages in the server.
+- "@SniperFox help" has been removed to redundancy since it has the same functionality as "/snipe".
+- TheSniped added.
+
 ### v3.2.0
 
 - Implemented server command integration globally instead of on one guild.
