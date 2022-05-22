@@ -243,7 +243,7 @@ client.on('interactionCreate', async interaction => {
                         console.log(temp);
 
                         const exampleEmbed = new MessageEmbed()
-                            .setColor('#f70000')
+                            .setColor('#0000f7')
                             .setTitle('Pick an old deleted message')
                             .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
                             .setDescription('Select an edited message you want to view and type its corresponding number in chat. (from oldest to most recent)')
@@ -296,7 +296,7 @@ client.on('interactionCreate', async interaction => {
                                 const num = numberAsked - 1;
                                 // console.log(newList[i][2]);
                                 const exampleEmbed = new MessageEmbed()
-                                    .setColor('#7e21ce')
+                                    .setColor('#0000f7')
                                     .setTitle(`Here's the deleted message you requested - #${numberAsked}`)
                                     .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
                                     .setDescription('im gonna make you an offer you cant refuse')
@@ -315,7 +315,7 @@ client.on('interactionCreate', async interaction => {
                                     .catch(console.error);
                             } else {
                                 const exampleEmbed = new MessageEmbed()
-                                    .setColor('#f70000')
+                                    .setColor('#0000f7')
                                     .setAuthor({ name: 'SniperFox', iconURL: 'https://cdn.discordapp.com/attachments/772192764175581196/968955529315639336/SniperFoxPfp.jpg' })
                                     .setDescription(`<@${interaction.user.id}>, youre a dumbass. You didnt enter a valid number. ` + "Try `/edit10` again")
                                     .setTimestamp()
