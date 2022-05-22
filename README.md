@@ -23,7 +23,7 @@ Then run the below commands, which should install the necessary dependencies and
 ### v4.0.9
 
 - "/last10" bugs fixed.
-- Permissions errors fixed.
+- Permission errors fixed.
 - Vape thanked.
 - TheSniped added.
 
