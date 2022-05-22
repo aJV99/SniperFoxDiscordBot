@@ -20,6 +20,15 @@ Then run the below commands, which should install the necessary dependencies and
 
 ## Patch Notes
 
+### v5.0.0
+
+- Added new feature to see who deleted the message in addition to previous message info.
+- Added feature to recognize attached images to deleted images and can be viewed when sniped.
+- Implemented new feature of sniping edited messages, accessed through new server command "/snipedit".
+- In addition to "/snipedit", we have a new server command "/edit10" for sniping the last 10 edited messages.
+- Vape thanked.
+- TheSniped added.
+
 ### v4.0.9
 
 - "/last10" bugs fixed.

@@ -6,6 +6,8 @@ const { clientId, guildId, token } = require('./config.json');
 const commands = [
 	new SlashCommandBuilder().setName('snipe').setDescription('what can i say except undelete this'),
 	new SlashCommandBuilder().setName('last10').setDescription('feelin cute, might undelete this later'),
+	new SlashCommandBuilder().setName('snipedit').setDescription('dont go back on your words fam'),
+	new SlashCommandBuilder().setName('edit10').setDescription('everything is forever on the internet ;)'),
 	new SlashCommandBuilder().setName('help').setDescription('help me SniperFox Kenobi, youre my only hope'),
 ]
 	.map(command => command.toJSON());
