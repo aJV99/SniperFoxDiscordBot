@@ -292,33 +292,19 @@ client.on('messageDelete', (message) => {
 }) 
 
 client.on('messageCreate', (message) => {
-    if (message.content.toUpperCase() === '<@967171515063865384> HELP') {
-        fs.readFile('data.json', 'utf-8', (err, data) => {
-            if (err) {
-                throw err;
-            }
-            const newList = JSON.parse(data.toString());
-            console.log(newList);
-            for (let i = 0; i < newList.length; i++) {
-                if (newList[i][0] === `${interaction.guildId}`) {
-                    const delList = newList[i][1].length;
-                    if (newList[i][1].length === 0) {
-                        return interaction.reply("No messages have been deleted since my last reset!")
-                    }
-                    var lastDelMessage = newList[i][1][delList-1];
-                    console.log(lastDelMessage);
-                    break;
-                }
-            }
-            interaction.reply(`<@${lastDelMessage.authorId}> said "${lastDelMessage.content}" at ${Date(lastDelMessage.createdTimestamp)} in <#${lastDelMessage.channelId}>`); 
-        });
-    }
     let words = message.content.toUpperCase().split(" ");
     if (message.content.toUpperCase() === 'HELLO THERE') {
         message.reply("General Kenobi");
     } 
     if (message.content.startsWith("GG") && (message.author.id == "159985870458322944")) {
-        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975586757779259392/unknown.png");
+        var d = Math.random();
+        if (d < 0.45) {
+            message.reply("GG <@159985870458322944>, you just advanced to level CRINGE!");
+        } else if (d < 0.9) {
+            message.reply("GG <@159985870458322944>, you just advanced to level USELESS!");
+        } else {
+            message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975586757779259392/unknown.png");
+        }
     }
     if (message.content.toUpperCase() === "SHEGO") {
         message.reply("https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426");
