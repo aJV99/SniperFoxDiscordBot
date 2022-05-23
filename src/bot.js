@@ -15,13 +15,13 @@ client.on('ready', () => {
     var list = client.guilds.cache.map(g => [`${g.id}`, [], []]);
     console.log(list);
 
-    const data = JSON.stringify(list);
-    fs.writeFile('data.json', data, (err) => {
-        if (err) {
-            throw err;
-        }
-        console.log("JSON data is saved.");
-    });
+    // const data = JSON.stringify(list);
+    // fs.writeFile('data.json', data, (err) => {
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     console.log("JSON data is saved.");
+    // });
 })
 
 client.on('interactionCreate', async interaction => {
