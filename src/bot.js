@@ -421,7 +421,7 @@ client.on('messageDelete', async (message) => {
     }
     var d = Math.random();
     if (d > 0.79) {
-        message.channel.send("https://cdn.discordapp.com/attachments/973383667797852190/977729051215159296/unknown.png");
+        message.channel.send("https://cdn.discordapp.com/attachments/973383667797852190/978065845269971004/unknown.png");
     }
     console.log("Deleted Message: " + `[${message.author.tag}]: "${message.content}" at ${Date(message.createdTimestamp)}`);
     console.log(`${message.guildId}`);
