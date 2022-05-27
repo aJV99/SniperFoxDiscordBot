@@ -548,7 +548,7 @@ client.on('messageCreate', (message) => {
         }
     }
     // QM COMPSCI SERVER
-    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'HMM' && message.authorId == 766238802917457931) {
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'HMM') {
         message.reply("https://media.discordapp.net/attachments/782318550668148817/950797718337495071/abs.gif");
     } 
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
