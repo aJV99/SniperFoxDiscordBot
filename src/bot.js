@@ -15,13 +15,21 @@ client.on('ready', () => {
     var list = client.guilds.cache.map(g => [`${g.id}`, [], []]);
     console.log(list);
 
-    // const data = JSON.stringify(list);
-    // fs.writeFile('data.json', data, (err) => {
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     console.log("JSON data is saved.");
-    // });
+    fs.readFile('data.json', 'utf-8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+
+        if (data.length == 0) {
+            const data = JSON.stringify(list);
+            fs.writeFile('data.json', data, (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log("JSON data is saved.");
+            });
+        }
+    })
 })
 
 client.on('interactionCreate', async interaction => {
@@ -551,9 +559,12 @@ client.on('messageCreate', (message) => {
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'HMM' && message.author.id == 766238802917457931) {
         message.reply("https://media.discordapp.net/attachments/782318550668148817/950797718337495071/abs.gif");
     } 
-    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'NUNCHLAX') {
         message.reply("No matter what the crime or evidence, Jamal definitely did it");
     } 
+    if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'JAMAL') {
+        message.reply("https://cdn.discordapp.com/attachments/973383667797852190/982266350938501210/calmdown.mp4");
+    }
     if (message.guildId == 754295468913066017 && message.content.toUpperCase() === 'VAPE') {
         message.reply("https://cdn.discordapp.com/attachments/973383667797852190/974444218426736660/vapegabriel.gif");
     } 
