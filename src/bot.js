@@ -552,7 +552,34 @@ client.on('messageCreate', (message) => {
             message.reply("https://tenor.com/view/odpay-2b2t-odpay2b2t-gif-22649641");
         }
         if ((words[i] === "BM") && (message.author.id != "967171515063865384")) {
-            message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975175462160564254/itsdatboyo-01102021-0001.mp4");
+            var startTime = '00:00:00';
+            var endTime = '11:00:00';
+
+            currentDate = new Date()   
+
+            startDate = new Date(currentDate.getTime());
+            startDate.setHours(startTime.split(":")[0]);
+            startDate.setMinutes(startTime.split(":")[1]);
+            startDate.setSeconds(startTime.split(":")[2]);
+
+            endDate = new Date(currentDate.getTime());
+            endDate.setHours(endTime.split(":")[0]);
+            endDate.setMinutes(endTime.split(":")[1]);
+            endDate.setSeconds(endTime.split(":")[2]);
+
+
+            valid = startDate < currentDate && endDate > currentDate
+
+            console.log(valid);
+            if (valid) {
+                message.reply("https://cdn.discordapp.com/attachments/973383667797852190/975175462160564254/itsdatboyo-01102021-0001.mp4");
+            }
+            else {
+                message.reply("You silly silly boi. it aint morning any more. Try the `ba` command.")
+            }
+        }
+        if ((words[i] === "BA") && (message.author.id != "967171515063865384")) {
+            message.reply("stfu sheep");
         }
     }
     // QM COMPSCI SERVER
