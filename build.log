@@ -1,0 +1,31 @@
+
+> sniperfox@1.0.0 build C:\Users\Abbas Alibhai\source\SniperFoxDiscordBot
+> tsc
+
+deploy-commands.ts(4,20): error TS2307: Cannot find module './config.json' or its corresponding type declarations.
+src/bot.ts(18,20): error TS2307: Cannot find module '../config.json' or its corresponding type declarations.
+src/bot.ts(149,64): error TS2339: Property 'createMessageCollector' does not exist on type 'TextBasedChannel'.
+  Property 'createMessageCollector' does not exist on type 'PartialGroupDMChannel'.
+src/bot.ts(155,46): error TS7006: Parameter 'collected' implicitly has an 'any' type.
+src/bot.ts(293,64): error TS2339: Property 'createMessageCollector' does not exist on type 'TextBasedChannel'.
+  Property 'createMessageCollector' does not exist on type 'PartialGroupDMChannel'.
+src/bot.ts(299,46): error TS7006: Parameter 'collected' implicitly has an 'any' type.
+src/bot.ts(428,8): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(event: Events.MessageDelete, listener: (message: OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>) => void): Client<...>', gave the following error.
+    Argument of type '(message: Message) => Promise<void>' is not assignable to parameter of type '(message: OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>) => void'.
+      Types of parameters 'message' and 'message' are incompatible.
+        Type 'OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>' is not assignable to type 'Message<boolean>'.
+          Type 'PartialMessage<boolean> & { channel: DMChannel | PartialDMChannel | NewsChannel | StageChannel | TextChannel | PublicThreadChannel<...> | PrivateThreadChannel | VoiceChannel; }' is missing the following properties from type 'Message<boolean>': _cacheType, _patch
+  Overload 2 of 2, '(event: never, listener: (...args: any[]) => void): Client<boolean>', gave the following error.
+    Argument of type 'Events.MessageDelete' is not assignable to parameter of type 'never'.
+src/bot.ts(434,25): error TS2339: Property 'send' does not exist on type 'DMChannel | PartialDMChannel | PartialGroupDMChannel | NewsChannel | StageChannel | TextChannel | PublicThreadChannel<...> | PrivateThreadChannel | VoiceChannel'.
+  Property 'send' does not exist on type 'PartialGroupDMChannel'.
+src/bot.ts(492,8): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(event: Events.MessageUpdate, listener: (oldMessage: OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>, newMessage: OmitPartialGroupDMChannel<...>) => void): Client<...>', gave the following error.
+    Argument of type '(oldMessage: Message, newMessage: Message) => void' is not assignable to parameter of type '(oldMessage: OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>, newMessage: OmitPartialGroupDMChannel<Message<boolean>>) => void'.
+      Types of parameters 'oldMessage' and 'oldMessage' are incompatible.
+        Type 'OmitPartialGroupDMChannel<Message<boolean> | PartialMessage<boolean>>' is not assignable to type 'Message<boolean>'.
+          Type 'PartialMessage<boolean> & { channel: DMChannel | PartialDMChannel | NewsChannel | StageChannel | TextChannel | PublicThreadChannel<...> | PrivateThreadChannel | VoiceChannel; }' is missing the following properties from type 'Message<boolean>': _cacheType, _patch
+  Overload 2 of 2, '(event: never, listener: (...args: any[]) => void): Client<boolean>', gave the following error.
+    Argument of type 'Events.MessageUpdate' is not assignable to parameter of type 'never'.
+ ELIFECYCLE  Command failed with exit code 2.

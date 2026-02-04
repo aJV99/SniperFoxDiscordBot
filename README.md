@@ -14,11 +14,25 @@ Ensure you have the latest version of Node.js installed.
 
 Then run the below commands, which should install the necessary dependencies and begin to run the Discord Bot.
 
-`npm install`
+`pnpm install`
 
-`npm start run`
+`pnpm start`
 
 ## Patch Notes
+
+### v6.0.0
+
+- Major code refactoring: Modular architecture with separate config, handlers, and utilities.
+- Configuration consolidation: Migrated from `config.json` to `.env` with type-safe config service.
+- Implemented GitHub Gist storage for persistent message history across deployments.
+- Easter eggs refactored into data-driven configuration for easier maintenance.
+- Added new easter eggs with Giphy API integration and smart caching system.
+- GIF cache system reduces API calls to ~2 per hour while ensuring variety.
+- Fixed probability bug: Deleted message image now correctly shows 20% of the time.
+- Removed hardcoded constants: All configuration centralized in `src/config/`.
+- Deprecated `config.json`, `config.d.ts`, and `config.example.json` in favor of `.env`.
+- Vape thanked.
+- TheSniped added.
 
 ### v5.0.0
 
@@ -76,9 +90,3 @@ Then run the below commands, which should install the necessary dependencies and
 
 - First release of the SniperFox Discord Bot.
 - Added command "@SniperFox help" to show most recent deleted message.
-
-## License
-
-Abbas Alibhai
-
-© 2022

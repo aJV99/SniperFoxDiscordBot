@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+package-lock.json
+
+# Build output
+dist
+build
+
+# Environment and config
+.env
+.env.example
+data.json
+
+# Git
+.git
+.gitignore
+
+# Logs
+*.log
