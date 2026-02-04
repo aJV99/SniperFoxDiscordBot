@@ -4,7 +4,7 @@
  */
 
 import { Message } from 'discord.js';
-import { EASTER_EGGS, EasterEgg } from '../config/easterEggs';
+import { EASTER_EGGS } from '../config/easterEggs';
 import { SNIPER_FOX_BOT_ID } from '../config/constants';
 
 /**

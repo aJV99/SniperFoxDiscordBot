@@ -153,7 +153,7 @@ export async function initializeStorage(guildList: GuildData[]): Promise<void> {
             existingData = JSON.parse(localFileData);
             hasLocalData = existingData.length > 0;
             console.log('[DEBUG] Local file has', existingData.length, 'guilds');
-        } catch (err) {
+        } catch {
             console.log('[INFO] No local data file found');
         }
 
@@ -187,8 +187,8 @@ export async function initializeStorage(guildList: GuildData[]): Promise<void> {
         } else {
             console.log('[INFO] Storage already contains guild data');
         }
-    } catch (err) {
-        console.error('[ERROR] Error during storage initialization:', err);
+    } catch (error) {
+        console.error('[ERROR] Error during storage initialization:', error);
         console.log('[INFO] Creating new storage...');
         await writeGuildData(guildList);
         console.log('[SUCCESS] Storage created with', guildList.length, 'guilds');

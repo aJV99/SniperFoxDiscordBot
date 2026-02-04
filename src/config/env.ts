@@ -19,7 +19,7 @@ function requireEnv(key: string): string {
         throw new Error(
             `Missing required environment variable: ${key}\n` +
                 `Please add ${key} to your .env file.\n` +
-                `See .env.example for reference.`
+                'See .env.example for reference.'
         );
     }
 
@@ -55,6 +55,7 @@ export const config = {
     app: {
         environment: getEnv('NODE_ENV', 'development'),
         useGistStorage: getEnv('USE_GIST_STORAGE', 'false') === 'true',
+        port: parseInt(getEnv('PORT', '3000'), 10),
     },
 
     // Giphy Configuration (for easter eggs)

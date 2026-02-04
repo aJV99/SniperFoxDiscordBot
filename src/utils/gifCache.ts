@@ -3,8 +3,14 @@
  * Caches search results and tracks recently shown GIFs
  */
 
+interface GiphyGif {
+    id: string;
+    url: string;
+    embed_url: string;
+}
+
 interface CachedGifs {
-    gifs: any[];
+    gifs: GiphyGif[];
     timestamp: number;
 }
 
@@ -47,7 +53,7 @@ export async function getRandomGif(
             throw new Error('API request failed');
         }
 
-        const data: any = await response.json();
+        const data = (await response.json()) as { data: GiphyGif[] };
 
         if (!data.data || data.data.length === 0) {
             throw new Error('No GIFs found');

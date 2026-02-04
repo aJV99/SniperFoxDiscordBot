@@ -15,7 +15,7 @@ export function createSniperFoxEmbed(
     requester: string
 ): EmbedBuilder {
     return new EmbedBuilder()
-        .setColor(color as any)
+        .setColor(color as `#${string}`)
         .setTitle(title)
         .setAuthor({ name: 'SniperFox', iconURL: ICON_URL })
         .setDescription(description)

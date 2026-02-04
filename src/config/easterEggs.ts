@@ -3,6 +3,7 @@
  * Defines trigger conditions and responses for special messages
  */
 
+import { Message } from 'discord.js';
 import { getRandomGif } from '../utils/gifCache';
 import { config } from './env';
 
@@ -12,7 +13,7 @@ export interface EasterEgg {
     guildId?: string;
     userId?: string;
     type: 'exact' | 'startsWith' | 'includes' | 'word';
-    customHandler?: (message: any) => void | Promise<void>;
+    customHandler?: (message: Message) => void | Promise<void>;
 }
 
 export const EASTER_EGGS: EasterEgg[] = [

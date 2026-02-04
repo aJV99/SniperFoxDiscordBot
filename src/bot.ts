@@ -1,3 +1,4 @@
+import http from 'http';
 import {
     TextChannel,
     ReadonlyCollection,
@@ -52,6 +53,29 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
     ],
     partials: [Partials.Message, Partials.Channel],
+});
+
+// Health check server for Render.com (keeps web service alive)
+const server = http.createServer((req, res) => {
+    if (req.url === '/health' || req.url === '/') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(
+            JSON.stringify({
+                status: 'ok',
+                uptime: process.uptime(),
+                timestamp: new Date().toISOString(),
+                bot: client.user?.tag || 'Not ready',
+            })
+        );
+    } else {
+        res.writeHead(404);
+        res.end('Not Found');
+    }
+});
+
+server.listen(config.app.port, () => {
+    console.log(`[INFO] Health check server running on port ${config.app.port}`);
+    console.log('[INFO] Endpoint: /health');
 });
 
 client.on(Events.ClientReady, async () => {

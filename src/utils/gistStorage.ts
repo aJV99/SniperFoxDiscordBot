@@ -26,7 +26,7 @@ export async function readFromGist(): Promise<GuildData[]> {
             throw new Error(`GitHub API returned ${response.status}: ${response.statusText}`);
         }
 
-        const gist: any = await response.json();
+        const gist = (await response.json()) as { files?: { [key: string]: { content?: string } } };
         const fileContent = gist.files?.[GIST_FILENAME]?.content;
 
         if (!fileContent) {
