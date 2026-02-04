@@ -64,7 +64,7 @@ export const EASTER_EGGS: EasterEgg[] = [
 
             const valid = startDate < currentDate && endDate > currentDate;
 
-            if (!valid) {
+            if (valid) {
                 message.reply(
                     'https://cdn.discordapp.com/attachments/973383667797852190/975175462160564254/itsdatboyo-01102021-0001.mp4'
                 );
