@@ -6,6 +6,7 @@
 import { Message } from 'discord.js';
 import { EASTER_EGGS } from '../config/easterEggs';
 import { SNIPER_FOX_BOT_ID } from '../config/constants';
+import { config } from '../config/env';
 
 /**
  * Checks if a message matches an easter egg trigger and responds accordingly
@@ -20,9 +21,11 @@ export async function handleEasterEggs(message: Message): Promise<void> {
     const words = upperContent.split(' ');
 
     for (const egg of EASTER_EGGS) {
-        // Check guild restrictions
-        if (egg.guildId && message.guildId !== egg.guildId) {
-            continue;
+        // Check if easter egg requires a special guild
+        if (egg.requiresSpecialGuild) {
+            if (!message.guildId || !config.easterEggs.specialGuildIds.includes(message.guildId)) {
+                continue;
+            }
         }
 
         // Check user restrictions

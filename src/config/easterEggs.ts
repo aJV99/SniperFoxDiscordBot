@@ -10,7 +10,7 @@ import { config } from './env';
 export interface EasterEgg {
     trigger: string;
     response: string;
-    guildId?: string;
+    requiresSpecialGuild?: boolean; // If true, only works in guilds listed in SPECIAL_GUILD_IDS env var
     userId?: string;
     type: 'exact' | 'startsWith' | 'includes' | 'word';
     customHandler?: (message: Message) => void | Promise<void>;
@@ -76,72 +76,72 @@ export const EASTER_EGGS: EasterEgg[] = [
         },
     },
 
-    // QM COMPSCI SERVER specific easter eggs (Guild ID: 772192764175581194)
+    // Special guild easter eggs (requires guild ID in SPECIAL_GUILD_IDS env var)
     {
         trigger: 'HMM',
         response:
             'https://media.discordapp.net/attachments/782318550668148817/950797718337495071/abs.gif',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         userId: '766238802917457931',
         type: 'exact',
     },
     {
         trigger: 'NUNCHLAX',
         response: 'No matter what the crime or evidence, Jamal definitely did it',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'JAMAL',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/982266350938501210/calmdown.mp4',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'VAPE',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974444218426736660/vapegabriel.gif',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'NIGEED',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974441802230796349/SmartSelect_20220512-234342_Instagram.jpg',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'GABRIEL',
         response: "wasn't gabriel an angel? this gabriel a demon",
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'HAMZA',
         response: 'https://tenor.com/view/gacha-heat-gif-16974782483004850675',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'JONATHAN',
         response: 'https://tenor.com/view/jonathan-funny-hogsmoss-fortnite-chungus-gif-17799912',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'UMAR',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974457690619248670/umarhehe.mp4',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'exact',
     },
     {
         trigger: 'SIU',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974443635598827530/muchas_gracias.mp4',
-        guildId: '772192764175581194',
+        requiresSpecialGuild: true,
         type: 'includes',
     },
 

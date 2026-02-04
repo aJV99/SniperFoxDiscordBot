@@ -34,6 +34,20 @@ function getEnv(key: string, defaultValue: string): string {
 }
 
 /**
+ * Parses a comma-separated list from an environment variable
+ */
+function getEnvList(key: string, defaultValue: string[] = []): string[] {
+    const value = process.env[key];
+    if (!value || value.trim() === '') {
+        return defaultValue;
+    }
+    return value
+        .split(',')
+        .map(item => item.trim())
+        .filter(item => item !== '');
+}
+
+/**
  * Configuration object with validated environment variables
  * All values are validated on module load - fails fast if config is invalid
  */
@@ -61,6 +75,13 @@ export const config = {
     // Giphy Configuration (for easter eggs)
     giphy: {
         apiKey: requireEnv('GIPHY_API_KEY'),
+    },
+
+    // Easter Eggs Configuration
+    easterEggs: {
+        // Comma-separated list of guild IDs where special easter eggs are enabled
+        // Example: "123456789,987654321"
+        specialGuildIds: getEnvList('SPECIAL_GUILD_IDS'),
     },
 } as const;
 
