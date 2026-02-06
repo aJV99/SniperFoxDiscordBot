@@ -1,0 +1,20 @@
+services:
+  sniperfox:
+    build: .
+    image: sniperfox:latest
+    container_name: sniperfox-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Persist data.json across container restarts
+      - ./data.json:/app/data.json
+    environment:
+      - NODE_ENV=production
+    # Health check to ensure bot is running
+    healthcheck:
+      test: ["CMD", "node", "-e", "process.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

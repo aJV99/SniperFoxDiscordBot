@@ -6,3 +6,7 @@ config.json
 trial.js
 dist
 Claude.md
+
+# Docker
+.dockerignore
+docker-compose.override.yml

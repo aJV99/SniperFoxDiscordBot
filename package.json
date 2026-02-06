@@ -5,7 +5,7 @@
   "author": "aJV99",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "test -f .env || test -n \"$RENDER\" || (echo 'Error: .env not found. Copy .env.example to .env and fill in your values.' && exit 1)",
+    "prebuild": "test -f .env || test -n \"$RENDER\" || test -n \"$DOCKER_BUILD\" || (echo 'Error: .env not found. Copy .env.example to .env and fill in your values.' && exit 1)",
     "build": "tsc",
     "start": "node ./dist/src/bot.js",
     "dev": "nodemon --exec ts-node ./src/bot.ts",
