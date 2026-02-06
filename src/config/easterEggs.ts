@@ -26,7 +26,7 @@ export const EASTER_EGGS: EasterEgg[] = [
     {
         trigger: 'SHEGO',
         response: 'https://tenor.com/view/lets-go-hair-wind-kim-possible-blow-kiss-gif-16086426',
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'LEAN',
@@ -83,59 +83,59 @@ export const EASTER_EGGS: EasterEgg[] = [
             'https://media.discordapp.net/attachments/782318550668148817/950797718337495071/abs.gif',
         requiresSpecialGuild: true,
         userId: '766238802917457931',
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'NUNCHLAX',
         response: 'No matter what the crime or evidence, Jamal definitely did it',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'JAMAL',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/982266350938501210/calmdown.mp4',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'VAPE',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974444218426736660/vapegabriel.gif',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'NIGEED',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974441802230796349/SmartSelect_20220512-234342_Instagram.jpg',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'GABRIEL',
         response: "wasn't gabriel an angel? this gabriel a demon",
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'HAMZA',
         response: 'https://tenor.com/view/gacha-heat-gif-16974782483004850675',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'JONATHAN',
         response: 'https://tenor.com/view/jonathan-funny-hogsmoss-fortnite-chungus-gif-17799912',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'UMAR',
         response:
             'https://cdn.discordapp.com/attachments/973383667797852190/974457690619248670/umarhehe.mp4',
         requiresSpecialGuild: true,
-        type: 'exact',
+        type: 'word',
     },
     {
         trigger: 'SIU',
